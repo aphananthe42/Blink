@@ -27,5 +27,5 @@ while True:
         sleep(0.1)
 
     led_onboard.off()
-    sleep(10.0)
+    sleep(300.0)
     
