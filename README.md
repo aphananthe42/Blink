@@ -1,2 +1,3 @@
-# BlinkOnboardLED-SOS
-Blink SOS with Raspberry Pi Pico's onboard LED.
+# PicoCode
+So long, and thanks for all the fish.
+    -- Douglas Adams
