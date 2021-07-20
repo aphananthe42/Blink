@@ -1,31 +1,24 @@
-from machine import Pin
-from time    import sleep
+import machine
+import ssd1306
+import time
 
-led_onboard = Pin(25, Pin.OUT)
+sda = machine.Pin(0)
+scl = machine.Pin(1)
+i2c = machine.I2C(0,sda=sda, scl=scl, freq=400000)
+
+oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 while True:
-    for s in range(3):
-        led_onboard.on()
-        sleep(0.2)
-        led_onboard.off()
-        sleep(0.1)
-    led_onboard.off()
-    sleep(0.5)
-
-    for o in range(3):
-        led_onboard.on()
-        sleep(1)
-        led_onboard.off()
-        sleep(0.1)
-    led_onboard.off()
-    sleep(0.5)
-
-    for s in range(3):
-        led_onboard.on()
-        sleep(0.2)
-        led_onboard.off()
-        sleep(0.1)
-
-    led_onboard.off()
-    sleep(1800.0)
-    
+    oled.text("So long, and", 0, 5)
+    oled.show()
+    time.sleep(2)
+    oled.text("thanks for", 0, 15)
+    oled.show()
+    time.sleep(2)
+    oled.text("all the fish.", 0, 25)
+    oled.show()
+    time.sleep(2)
+    oled.text("-- Douglas Adams", 0, 45)
+    oled.show()
+    time.sleep(2)
+    oled.fill(0)
